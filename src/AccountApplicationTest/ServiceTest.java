@@ -23,7 +23,7 @@ public class ServiceTest {
 		Account account = new Account();
 		service.addToMap(account);
 		
-		assertEquals("That account was not found", service.retrieveAccountNumber(10),null);
+		assertEquals("Doesn't come back null", service.retrieveAccountNumber(10),null);
 	}
 	
 	@Test
@@ -35,7 +35,7 @@ public class ServiceTest {
 		account.setLastName("Mann");
 		service.addToMap(account);
 		
-		assertEquals("That account was not found", service.retrieveAccountNumber(10),"Hugh");
+		assertEquals("That account number was not found", service.retrieveAccountNumber(10),"Hugh");
 	}
 	
 	@Test
@@ -45,7 +45,7 @@ public class ServiceTest {
 		Account account = new Account();
 		service.addToMap(account);
 		
-		assertEquals("That account was not found", service.retrieveAccountFirstName("jim"),null);
+		assertEquals("That account name was found", service.retrieveAccountFirstName("jim"),null);
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class ServiceTest {
 		account.setLastName("Mann");
 		service.addToMap(account);
 		
-		assertEquals("That account was not found", service.retrieveAccountFirstName("Hugh"),"Mann");
+		assertEquals("That account name was not found", service.retrieveAccountFirstName("Hugh"),"Mann");
 	}
 	
 	@Test
@@ -67,7 +67,7 @@ public class ServiceTest {
 		Account account = new Account();
 		service.addToMap(account);
 		
-		assertEquals("That account was not found", service.retrieveAccountLastName("jim"),null);
+		assertEquals("That account was found somehow", service.retrieveAccountLastName("jim"),null);
 	}
 	
 	@Test
@@ -79,7 +79,19 @@ public class ServiceTest {
 		account.setLastName("Mann");
 		service.addToMap(account);
 		
-		assertEquals("That account was not found", service.retrieveAccountLastName("Mann"),"Hugh");
+		assertEquals("That account last name was not found", service.retrieveAccountLastName("Mann"),"Hugh");
+	}
+	
+	@Test
+	public void jsonMapTest() {
+		Service service = new Service();
+		
+		Account account = new Account(10);
+		account.setFirstName("Hugh");
+		account.setLastName("Mann");
+		service.addToMap(account);
+		
+		assertNotNull("The json object was not found", service.getJSON());
 	}
 	
 	

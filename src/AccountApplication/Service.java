@@ -3,13 +3,18 @@ package AccountApplication;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONML;
+import org.json.JSONObject;
+
 public class Service {
 	
 	public HashMap<Integer, Account> accountMap = new HashMap<Integer, Account>();
 	
+	private JSONObject jsonMap;
 	
 	public void addToMap(Account account) {
 		accountMap.put(account.getAccountNumber(), account);
+		jsonMap = new JSONObject(accountMap);
 	}
 	
 	public String retrieveAccountNumber(int accountNumber) {
@@ -50,6 +55,10 @@ public class Service {
 	
 	public Map getAccountMap() {
 		return accountMap;
+	}
+	
+	public JSONObject getJSON() {
+		return jsonMap;
 	}
 
 }

@@ -1,13 +1,8 @@
 package AccountApplication;
 
-import java.util.HashMap;
-
-import org.json.JSONObject;
-
 public class Main {
 	
 	public static void main (String[] args) {
-		
 		Service service = new Service();
 		
 		Account hugh = new Account(17);
@@ -25,16 +20,11 @@ public class Main {
 		bob.setLastName("Argon");
 		service.addToMap(bob);
 		
-		//service.retrieveAccountNumber(17);
-		//service.retrieveAccountFirstName("Bob");
-		//service.retrieveAccountLastName("Ren");
+		service.retrieveAccountNumber(17);
+		service.retrieveAccountFirstName("Bob");
+		service.retrieveAccountLastName("Ren");
 		
-		HashMap<Integer, Account> mapper = new HashMap<Integer, Account>();
-		mapper.put(hugh.getAccountNumber(), hugh);
-		mapper.put(alice.getAccountNumber(), alice);
-		mapper.put(bob.getAccountNumber(), bob);
-		JSONObject json = new JSONObject(mapper);
-		System.out.println(json);
+		System.out.println(service.getJSON()); 
 		
 	}
 
