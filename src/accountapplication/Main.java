@@ -1,4 +1,4 @@
-package AccountApplication;
+package accountapplication;
 
 public class Main {
 	
@@ -16,12 +16,12 @@ public class Main {
 		service.addToMap(alice);
 		
 		Account bob = new Account(201);
-		bob.setFirstName("Bob");
+		bob.setFirstName("Hugh");
 		bob.setLastName("Argon");
 		service.addToMap(bob);
-		
+		 
 		service.retrieveAccountNumber(17);
-		service.retrieveAccountFirstName("Bob");
+		service.retrieveAccountFirstName("Hugh");
 		service.retrieveAccountLastName("Ren");
 		
 		System.out.println(service.getJSON()); 

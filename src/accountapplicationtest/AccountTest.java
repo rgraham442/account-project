@@ -1,10 +1,10 @@
-package AccountApplicationTest;
+package accountapplicationtest;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import AccountApplication.Account;
+import accountapplication.Account;
 
 public class AccountTest {
 	
